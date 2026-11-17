@@ -1,0 +1,143 @@
+{
+  "created": "2026-11-17T20:49:29",
+  "spymaster": "qwen2.5:1.5b",
+  "guesser": "qwen2.5:1.5b",
+  "runs": 5,
+  "boards_per_run": 50,
+  "first_seed": 1000000,
+  "reveal": 0.0,
+  "per_run": [
+    {
+      "run": 1,
+      "boards": 50,
+      "mean_reward": -2.41,
+      "valid_rate": 0.3,
+      "unparseable": 0,
+      "illegal": 35,
+      "mean_number": 2.066666666666667,
+      "mean_correct": 0.13333333333333333,
+      "all_correct_rate": 0.0,
+      "assassin_rate": 0.06,
+      "opponent_rate": 0.04,
+      "neutral_rate": 0.02
+    },
+    {
+      "run": 2,
+      "boards": 50,
+      "mean_reward": -2.21,
+      "valid_rate": 0.3,
+      "unparseable": 0,
+      "illegal": 35,
+      "mean_number": 2.066666666666667,
+      "mean_correct": 0.26666666666666666,
+      "all_correct_rate": 0.02,
+      "assassin_rate": 0.02,
+      "opponent_rate": 0.08,
+      "neutral_rate": 0.02
+    },
+    {
+      "run": 3,
+      "boards": 50,
+      "mean_reward": -2.64,
+      "valid_rate": 0.26,
+      "unparseable": 0,
+      "illegal": 37,
+      "mean_number": 1.9230769230769231,
+      "mean_correct": 0.07692307692307693,
+      "all_correct_rate": 0.0,
+      "assassin_rate": 0.08,
+      "opponent_rate": 0.04,
+      "neutral_rate": 0.0
+    },
+    {
+      "run": 4,
+      "boards": 50,
+      "mean_reward": -2.27,
+      "valid_rate": 0.3,
+      "unparseable": 0,
+      "illegal": 35,
+      "mean_number": 2.2,
+      "mean_correct": 0.13333333333333333,
+      "all_correct_rate": 0.0,
+      "assassin_rate": 0.02,
+      "opponent_rate": 0.08,
+      "neutral_rate": 0.06
+    },
+    {
+      "run": 5,
+      "boards": 50,
+      "mean_reward": -2.44,
+      "valid_rate": 0.3,
+      "unparseable": 0,
+      "illegal": 35,
+      "mean_number": 1.9333333333333333,
+      "mean_correct": 0.26666666666666666,
+      "all_correct_rate": 0.0,
+      "assassin_rate": 0.08,
+      "opponent_rate": 0.02,
+      "neutral_rate": 0.0
+    }
+  ],
+  "aggregate": {
+    "mean_reward": {
+      "mean": -2.394,
+      "std": 0.1674216234540808,
+      "min": -2.64,
+      "max": -2.21
+    },
+    "valid_rate": {
+      "mean": 0.292,
+      "std": 0.01788854381999831,
+      "min": 0.26,
+      "max": 0.3
+    },
+    "unparseable": {
+      "mean": 0,
+      "std": 0.0,
+      "min": 0,
+      "max": 0
+    },
+    "illegal": {
+      "mean": 35.4,
+      "std": 0.8944271909999159,
+      "min": 35,
+      "max": 37
+    },
+    "mean_number": {
+      "mean": 2.037948717948718,
+      "std": 0.11407230944327623,
+      "min": 1.9230769230769231,
+      "max": 2.2
+    },
+    "mean_correct": {
+      "mean": 0.1753846153846154,
+      "std": 0.08645247389902161,
+      "min": 0.07692307692307693,
+      "max": 0.26666666666666666
+    },
+    "all_correct_rate": {
+      "mean": 0.004,
+      "std": 0.00894427190999916,
+      "min": 0.0,
+      "max": 0.02
+    },
+    "assassin_rate": {
+      "mean": 0.052,
+      "std": 0.030331501776206204,
+      "min": 0.02,
+      "max": 0.08
+    },
+    "opponent_rate": {
+      "mean": 0.052000000000000005,
+      "std": 0.02683281572999748,
+      "min": 0.02,
+      "max": 0.08
+    },
+    "neutral_rate": {
+      "mean": 0.02,
+      "std": 0.02449489742783178,
+      "min": 0.0,
+      "max": 0.06
+    }
+  }
+}

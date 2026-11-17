@@ -1,0 +1,154 @@
+{
+  "created": "2026-11-17T21:27:40",
+  "spymaster": "qwen2.5:1.5b",
+  "guesser": "deepinfra/meta-llama/Llama-3.3-70B-Instruct-Turbo",
+  "runs": 5,
+  "boards_per_run": 50,
+  "first_seed": 1000000,
+  "reveal": 0.0,
+  "per_run": [
+    {
+      "run": 1,
+      "boards": 50,
+      "mean_reward": -2.61,
+      "valid_rate": 0.62,
+      "unparseable": 0,
+      "illegal": 19,
+      "mean_number": 1.7096774193548387,
+      "mean_correct": 0.5161290322580645,
+      "guesser_empty_rate": 0.02,
+      "all_correct_rate": 0.16,
+      "assassin_rate": 0.26,
+      "opponent_rate": 0.12,
+      "neutral_rate": 0.06
+    },
+    {
+      "run": 2,
+      "boards": 50,
+      "mean_reward": -1.6,
+      "valid_rate": 0.64,
+      "unparseable": 1,
+      "illegal": 17,
+      "mean_number": 1.65625,
+      "mean_correct": 0.6875,
+      "guesser_empty_rate": 0.06,
+      "all_correct_rate": 0.26,
+      "assassin_rate": 0.1,
+      "opponent_rate": 0.14,
+      "neutral_rate": 0.08
+    },
+    {
+      "run": 3,
+      "boards": 50,
+      "mean_reward": -2.13,
+      "valid_rate": 0.68,
+      "unparseable": 1,
+      "illegal": 15,
+      "mean_number": 1.8235294117647058,
+      "mean_correct": 0.5294117647058824,
+      "guesser_empty_rate": 0.04,
+      "all_correct_rate": 0.1,
+      "assassin_rate": 0.18,
+      "opponent_rate": 0.1,
+      "neutral_rate": 0.26
+    },
+    {
+      "run": 4,
+      "boards": 50,
+      "mean_reward": -2.37,
+      "valid_rate": 0.58,
+      "unparseable": 0,
+      "illegal": 21,
+      "mean_number": 1.6551724137931034,
+      "mean_correct": 0.4482758620689655,
+      "guesser_empty_rate": 0.0,
+      "all_correct_rate": 0.12,
+      "assassin_rate": 0.16,
+      "opponent_rate": 0.16,
+      "neutral_rate": 0.14
+    },
+    {
+      "run": 5,
+      "boards": 50,
+      "mean_reward": -2.1,
+      "valid_rate": 0.66,
+      "unparseable": 0,
+      "illegal": 17,
+      "mean_number": 1.7272727272727273,
+      "mean_correct": 0.5151515151515151,
+      "guesser_empty_rate": 0.02,
+      "all_correct_rate": 0.14,
+      "assassin_rate": 0.14,
+      "opponent_rate": 0.24,
+      "neutral_rate": 0.12
+    }
+  ],
+  "aggregate": {
+    "mean_reward": {
+      "mean": -2.162,
+      "std": 0.375725963968422,
+      "min": -2.61,
+      "max": -1.6
+    },
+    "valid_rate": {
+      "mean": 0.636,
+      "std": 0.03847076812334272,
+      "min": 0.58,
+      "max": 0.68
+    },
+    "unparseable": {
+      "mean": 0.4,
+      "std": 0.5477225575051661,
+      "min": 0,
+      "max": 1
+    },
+    "illegal": {
+      "mean": 17.8,
+      "std": 2.280350850198276,
+      "min": 15,
+      "max": 21
+    },
+    "mean_number": {
+      "mean": 1.714380394437075,
+      "std": 0.06889587421156593,
+      "min": 1.6551724137931034,
+      "max": 1.8235294117647058
+    },
+    "mean_correct": {
+      "mean": 0.5392936348368855,
+      "std": 0.0886939312288595,
+      "min": 0.4482758620689655,
+      "max": 0.6875
+    },
+    "guesser_empty_rate": {
+      "mean": 0.028,
+      "std": 0.022803508501982758,
+      "min": 0.0,
+      "max": 0.06
+    },
+    "all_correct_rate": {
+      "mean": 0.156,
+      "std": 0.06228964600958975,
+      "min": 0.1,
+      "max": 0.26
+    },
+    "assassin_rate": {
+      "mean": 0.168,
+      "std": 0.059329587896765304,
+      "min": 0.1,
+      "max": 0.26
+    },
+    "opponent_rate": {
+      "mean": 0.152,
+      "std": 0.05403702434442518,
+      "min": 0.1,
+      "max": 0.24
+    },
+    "neutral_rate": {
+      "mean": 0.132,
+      "std": 0.07823042886243178,
+      "min": 0.06,
+      "max": 0.26
+    }
+  }
+}
