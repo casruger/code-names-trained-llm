@@ -36,7 +36,10 @@ codenames/
   reward.py    reward-functie
   players.py   LLM- (OpenAI-compatibel), mens- en random-spelers
   game.py      score_clue_text(): de reward-functie die de training gebruikt
-baseline.py    N borden spelen en gemiddelde score meten
+  metrics.py   samenvattende statistieken per run
+  training.py  dataset, reward-functie en evaluatie voor GRPO (Colab)
+baseline.py    N borden spelen en gemiddelde score meten (lokaal, Ollama)
+train_grpo.ipynb  training in Google Colab
 tests/         pytest
 ```
 
@@ -93,7 +96,17 @@ Providers: `ollama` (lokaal), `inworld` (`INWORLD_API_KEY`), `openrouter`
 (`OPENROUTER_API_KEY`), `openai` (`OPENAI_API_KEY`) via `--provider` / `--guesser-provider`.
 De ruwe guesser-output staat per bord in `run_k.jsonl` (`guesser_raw`).
 
-## Volgende stap
+## Trainen (Google Colab)
 
-`train_grpo.ipynb` voor Colab: Qwen + LoRA trainen met TRL's GRPOTrainer, met
-`score_clue_text` als reward-functie.
+Open [`train_grpo.ipynb` in Colab](https://colab.research.google.com/github/casruger/code-names-trained-llm/blob/main/train_grpo.ipynb),
+kies een T4 GPU, zet `INWORLD_API_KEY` in Colab Secrets en doe *Run all*. Het notebook:
+
+1. meet het originele model op de 50 evaluatieborden;
+2. traint Qwen2.5-1.5B-Instruct met LoRA + GRPO (TRL), reward = `score_clue_text`,
+   guesser = Llama 3.3 70B (cache voorkomt dubbele API-calls);
+3. meet opnieuw en slaat de LoRA-adapter op in Google Drive (`codenames-rl/<run>/`);
+4. exporteert naar `codenames-spymaster-q4_k_m.gguf` (zelfde compressie als Ollama).
+
+Daarna lokaal importeren en met exact dezelfde meting vergelijken — zie de laatste cel van het notebook.
+
+De trainingslogica staat in `codenames/training.py` (getest in `tests/`).

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import os
 import random
+import threading
 
 from .board import Board
 from .parsing import parse_guesses
@@ -73,13 +74,20 @@ class HumanSpymaster:
 # Every guesser sets self.last_raw (its unparsed answer) so it can be logged.
 
 class LLMGuesser:
+    """Thread-safe: last_raw is per thread, so it can be called from a thread pool."""
+
     def __init__(self, client: LLMClient):
         self.client = client
-        self.last_raw: str | None = None
+        self._local = threading.local()
+
+    @property
+    def last_raw(self) -> str | None:
+        return getattr(self._local, "last_raw", None)
 
     def guess(self, board: Board, clue: str, number: int) -> list[str]:
-        self.last_raw = self.client.chat(guesser_messages(board, clue, number))
-        return parse_guesses(self.last_raw, board, max_guesses=number)
+        raw = self.client.chat(guesser_messages(board, clue, number))
+        self._local.last_raw = raw
+        return parse_guesses(raw, board, max_guesses=number)
 
 
 class HumanGuesser:

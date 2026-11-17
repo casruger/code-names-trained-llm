@@ -81,3 +81,30 @@ def test_inworld_uses_basic_auth(monkeypatch):
     c = LLMClient("some/model", provider="inworld")
     assert str(c.client.base_url).startswith("https://api.inworld.ai/v1")
     assert c.client.default_headers["Authorization"] == "Basic abc123"
+
+
+def test_reward_function_for_trainer(tmp_path):
+    import json as _json
+    from codenames.training import CodenamesReward, read_reward_log
+
+    b = small_board()
+    calls = []
+
+    class CountingGuesser(FixedGuesser):
+        def guess(self, board, clue, number):
+            calls.append(clue)
+            return super().guess(board, clue, number)
+
+    reward = CodenamesReward(CountingGuesser(["whale", "shark"]), log_path=tmp_path / "log.jsonl")
+    board_json = _json.dumps(b.to_dict())
+    completions = [  # chat-style completions, as TRL passes them
+        [{"role": "assistant", "content": "CLUE: ocean\nNUMBER: 2"}],
+        [{"role": "assistant", "content": "CLUE: ocean\nNUMBER: 2"}],   # same clue -> cached
+        [{"role": "assistant", "content": "CLUE: shark\nNUMBER: 1"}],   # illegal
+        [{"role": "assistant", "content": "no idea"}],                  # unparseable
+    ]
+    scores = reward(prompts=[None] * 4, completions=completions, board=[board_json] * 4)
+    assert scores == [2.0, 2.0, -3.0, -3.0]
+    assert calls == ["ocean"]                       # guesser called once thanks to the cache
+    log = read_reward_log(tmp_path / "log.jsonl")
+    assert len(log) == 4 and log[0]["clue"] == "ocean"
