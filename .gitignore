@@ -1,6 +1,18 @@
+# Python
 __pycache__/
 *.pyc
 .venv/
 .pytest_cache/
-results/
+
+# Secrets
 .env
+
+# Model weights (986 MB, GitHub allows max 100 MB per file)
+*.gguf
+
+# Scratch output
+results/
+
+# Incomplete early test runs
+eval_results/archive/qwen2.5_1.5b__vs__qwen2.5_3b/
+eval_results/archive/qwen2.5_1.5b__vs__qwen3_8b/
